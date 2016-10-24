@@ -3,10 +3,30 @@
 # Purpose ( Upgrade sap application servers to patch level 18 )
 # Author Robert Nicoara 
 
-function upgrade_SP_LEVEL {
-		scp SAPHOST*.SAR ibmadmin@$H:/home/ibmadmin
+echo "########################## ATENTION !!!! ##################"
+echo "					----------			----	-----	-----"
+echo "Please provide the PATCH NUMBER TARGET ex: 18 if PN is eq or less then PN it will upgrade /n
+		PERFORM THE UPGRADE !!!!!!  NO SPACES ONLY TWO DIGIT NUMEBERS /n EX:18"
 
-		 ssh ibmadmin@$H "sudo  /usr/sap/hostctrl/exe/saphostexec -upgrade -archive /home/ibmadmin/SAPHOSTAGENT18_18-20009394.SAR"
+read VERS
+
+function VERIFYPID {
+
+	 ssh ibmadmin@$H "sudo ps aux | grep -i saposcol | grep -iv 'grep'"
+
+		if [ $? -eq 0 ]
+			then
+			echo " SAPOSCOL PID present after upgrade EVERYTHING COOL on $HNAME now"
+		else
+			echo "$HNAME UPGRADE PERFORME HOWEVER SAPOSCOL PID NOT PRESENT INFORM PDL ASAP "
+		fi
+
+}
+function upgrade_SP_LEVEL {
+		FILE=`ls *SAR`
+		scp $FILE ibmadmin@$H:/home/ibmadmin
+
+#		 ssh ibmadmin@$H "sudo  /usr/sap/hostctrl/exe/saphostexec -upgrade -archive /home/ibmadmin/$FILE"
 
 		 PATCHUPGR=`ssh ibmadmin@$H "sudo /usr/sap/hostctrl/exe/saphostexec -version | grep -i 'patch number'" |awk '{print $NF}'`
 
@@ -23,14 +43,14 @@ for H in `cat hosts.txt`
 do
 	PATCHNUM=`ssh ibmadmin@$H "sudo /usr/sap/hostctrl/exe/saphostexec -version | grep -i 'patch number'" | awk '{ print $NF }'`
 	HNAME=`ssh ibmadmin@$H "sudo hostname"`
-	if [ $PATCHNUM -lt 18 ] || [ $PATCHNUM -eq 189 ]
+	if [ $PATCHNUM -lt $VESR ] || [ $PATCHNUM -eq 198 ]
 		then
 
 			echo "on $HNAME the PATCH level is $PATCHNUM ... UPGRADE NEEDED"
-		elif [ $PATCHNUM -eq 18 ]
+		elif [ $PATCHNUM -eq $VERS ]
 			then
 			echo "on $HNAME the PATCH level is $PATCHNUM ... No upgrade needed"
-		elif [ $PATCHNUM -gt 18 ]
+		elif [ $PATCHNUM -gt $VERS -a $PATCHNUM -ne 198 ] 
 			then
 				echo "on $HNAME the PATCH level is $PATCHNUM ... WHOa... Inform PDL ASAP "
 
