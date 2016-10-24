@@ -4,6 +4,7 @@
 # Author Robert Nicoara 
 
 function upgrade_SP_LEVEL {
+		scp SAPHOST*.SAR ibmadmin@$H:/home/ibmadmin
 
 		 ssh ibmadmin@$H "sudo  /usr/sap/hostctrl/exe/saphostexec -upgrade -archive /home/ibmadmin/SAPHOSTAGENT18_18-20009394.SAR"
 
@@ -22,7 +23,7 @@ for H in `cat hosts.txt`
 do
 	PATCHNUM=`ssh ibmadmin@$H "sudo /usr/sap/hostctrl/exe/saphostexec -version | grep -i 'patch number'" | awk '{ print $NF }'`
 	HNAME=`ssh ibmadmin@$H "sudo hostname"`
-	if [ $PATCHNUM -lt 18 ]
+	if [ $PATCHNUM -lt 18 ] || [ $PATCHNUM -eq 189 ]
 		then
 
 			echo "on $HNAME the PATCH level is $PATCHNUM ... UPGRADE NEEDED"
