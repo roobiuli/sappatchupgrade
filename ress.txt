@@ -1,0 +1,34 @@
+########################## ATENTION !!!! ##################
+					----------			----	-----	-----
+Please provide the PATCH NUMBER TARGET ex: 18 if PN is eq or less then PN it will upgrade /n
+		PERFORM THE UPGRADE !!!!!!  NO SPACES ONLY TWO DIGIT NUMEBERS /n EX:18
+on deeh12z1a1007 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1020 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1011 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a3038 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a3011 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a3017 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a3019 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a301a the PATCH level is 18 ... No upgrade needed
+on frgr11z1a3010 the PATCH level is 18 ... No upgrade needed
+on frgr11z1a3020 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1008 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1013 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a3010 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a3015 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a3016 the PATCH level is 18 ... No upgrade needed
+on frgr11z1a3011 the PATCH level is 18 ... No upgrade needed
+on frgr11z1a3023 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a100e the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1010 the PATCH level is 205 ... UPGRADE NEEDED... PROBING
+ Yes deeh12z1a1010 has the patch level at Version 18 NOW 
+SAPOSCOL PID present after upgrade EVERYTHING COOL on deeh12z1a1010 now
+on deeh12z1a3014 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a3023 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1022 the PATCH level is 205 ... UPGRADE NEEDED... PROBING
+ deeh12z1a1022 : Upgrade was performed however still not at V 18 
+SAPOSCOL PID present after upgrade EVERYTHING COOL on deeh12z1a1022 now
+on deeh12z1a1021 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1025 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1028 the PATCH level is 18 ... No upgrade needed
+on deeh12z1a1029 the PATCH level is 18 ... No upgrade needed
